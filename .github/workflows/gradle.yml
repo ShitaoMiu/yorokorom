@@ -19,7 +19,7 @@ jobs:
           docker build -t sunnam1607/yorokorom-frontend:v2 .
           
           # Docker Hub 로그인 추가
-          git remote | grep origin || git remote add origin https://ShitaoMiu:${{ secrets.GITHUB_TOKEN }}@github.com/ShitaoMiu/yorokorom.git
+          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
           
           docker push sunnam1607/yorokorom-frontend:v2
           echo "Frontend image built and pushed to Docker Hub as sunnam1607/yorokorom-frontend:v2"
