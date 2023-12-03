@@ -53,9 +53,6 @@ jobs:
 
             
             # Git 초기화 및 리모트 추가
-            git init
-            git remote remove origin
-            git remote add origin https://github.com/ShitaoMiu/yorokorom.git
 
             # git pull 및 Docker Compose 업데이트 및 실행
             git pull origin main
