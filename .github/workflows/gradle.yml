@@ -44,20 +44,19 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.REMOTE_PORT }}
           script: |
-            # 해당 디렉토리로 이동
-            cd /home/tigggi/yorokorom
-
-            # Git 초기화 및 리모트 추가 (최초 한 번만)
-            git rev-parse --git-dir 2>/dev/null || git init
-            git remote | grep origin || git remote add origin https://ShitaoMiu:${{ secrets.GIT_TOKEN }}@github.com/ShitaoMiu/yorokorom.git
-
-
             
             # Docker Hub 로그인
             echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-      
+
+            # 해당 디렉토리로 이동
+            cd /home/tigggi/yorokorom
+
+            
+            # Git 초기화 및 리모트 추가
+            git init
+            git remote add origin https://github.com/ShitaoMiu/yorokorom.git
+
             # git pull 및 Docker Compose 업데이트 및 실행
             git pull origin main
-            cd /home/tigggi/yorokorom
             docker-compose -f docker-compose.yml pull
             docker-compose -f docker-compose.yml up -d
