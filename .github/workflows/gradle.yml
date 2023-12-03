@@ -58,5 +58,6 @@ jobs:
       
             # git pull 및 Docker Compose 업데이트 및 실행
             git pull origin main
+            cd /home/tigggi/yorokorom
             docker-compose -f docker-compose.yml pull
             docker-compose -f docker-compose.yml up -d
