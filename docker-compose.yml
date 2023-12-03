@@ -15,5 +15,5 @@ services:
       - yorokorom-net
 
 networks:
-  cheerup-net:
-    driver: bridge
+  yorokorom-net:
+    external: true
