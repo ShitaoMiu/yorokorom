@@ -49,8 +49,6 @@ jobs:
       
             # git pull 및 Docker Compose 업데이트 및 실행
             cd /home/tigggi/yorokorom
-            git init
-            git remote add origin https://github.com/ShitaoMiu/yorokorom.git
             git pull origin main
             cd /home/tigggi/yorokorom
             docker-compose -f docker-compose.yml pull
