@@ -51,13 +51,20 @@ jobs:
             # 해당 디렉토리로 이동
             cd /home/tigggi/yorokorom
 
+            # 기존 리모트 확인
+            existing_remote=$(git remote -v)
             
-            # Git 초기화 및 리모트 추가
+            # 기존 리모트가 없다면 추가
+            if [[ $existing_remote != *"origin"* ]]; then
+              git remote add origin https://github.com/ShitaoMiu/yorokorom.git
+            fi 
+
            
             # git pull 및 Docker Compose 업데이트 및 실행
             git remote -v
             git remote add origin https://github.com/ShitaoMiu/yorokorom.git
 
             git pull origin main
+            docker network create yorokorom-net
             docker-compose -f docker-compose.yml pull
             docker-compose -f docker-compose.yml up -d
