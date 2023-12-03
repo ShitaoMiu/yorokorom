@@ -1,5 +1,3 @@
-# docker-compose.yml
-
 version: '3'
 services:
   backend:
@@ -18,10 +16,5 @@ services:
 
 networks:
   yorokorom-net:
-    external: true
-
-# 네트워크 생성 스크립트
-networks:
-  create:
     external: true
     driver: bridge
