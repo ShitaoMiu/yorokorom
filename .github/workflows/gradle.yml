@@ -58,7 +58,7 @@ jobs:
             if [[ $existing_remote != *"origin"* ]]; then
               git remote add origin https://github.com/ShitaoMiu/yorokorom.git
             fi 
-            echo "remoteDebug~~~~~~~~~~~~~>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+            echo "remoteDebug~~~~~~~~~~~~~>>>>>!!!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
            
             # git pull 및 Docker Compose 업데이트 및 실행
             git pull origin main
